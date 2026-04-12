@@ -29,6 +29,8 @@
 	<properties>
 		<java.version>21</java.version>
         <javajwt.version>4.2.1</javajwt.version> <!-- Define a versão do java-jwt -->
+        <efi.version>1.0.3</efi.version>
+        <json.version>20250517</json.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -87,6 +89,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.efipay.efisdk</groupId>
+            <artifactId>sdk-java-apis-efi</artifactId>
+            <version>${efi.version}</version>
         </dependency>
 	</dependencies>
 

@@ -1,6 +1,6 @@
 package com.rauldomingues.payment_system.controller;
 
-import com.rauldomingues.payment_system.dto.UserRequest;
+import com.rauldomingues.payment_system.dto.UserCreateRequest;
 import com.rauldomingues.payment_system.dto.UserResponse;
 import com.rauldomingues.payment_system.entity.User;
 import com.rauldomingues.payment_system.service.UserService;
@@ -15,15 +15,15 @@ import java.io.UnsupportedEncodingException;
 
 @CrossOrigin(origins = "http://localhost")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserRequest userRequest) throws MessagingException, UnsupportedEncodingException {
-        User user = userRequest.toModel();
+    public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserCreateRequest userCreateRequest) throws MessagingException, UnsupportedEncodingException {
+        User user = userCreateRequest.toModel();
         UserResponse userSaved = userService.registerUser(user);
         return ResponseEntity.ok().body(userSaved);
     }

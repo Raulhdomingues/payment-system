@@ -29,11 +29,13 @@ public class User implements UserDetails {
     private String password;
     private String verificationCode;
     private boolean enabled;
+    private String role;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, String role) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     @Override
