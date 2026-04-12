@@ -43,11 +43,11 @@ public class TokenService {
                     .getSubject();
 
         } catch (JWTVerificationException exception) {
-            throw new RuntimeException("Invalid token", exception);
+            throw new RuntimeException("Invalid token");
         }
     }
 
     private Instant ExpirationDate() {
-        return LocalDateTime.now().plusMinutes(1).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusMinutes(5).toInstant(ZoneOffset.of("-03:00"));
     }
 }
