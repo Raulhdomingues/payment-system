@@ -25,14 +25,19 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody AuthenticationRequest authenticationRequest) {
-        UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
-                authenticationRequest.email(),
-                authenticationRequest.password()
-        );
-        var auth = authenticationManager.authenticate(usernamePassword);
+        try {
+            UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
+                    authenticationRequest.email(),
+                    authenticationRequest.password()
+            );
+            var auth = authenticationManager.authenticate(usernamePassword);
 
-        var token = tokenService.generateToken((User) auth.getPrincipal());
+            var token = tokenService.generateToken((User) auth.getPrincipal());
 
-        return ResponseEntity.ok(new AuthenticationResponse(token));
+            return ResponseEntity.ok(new AuthenticationResponse(token));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return ResponseEntity.badRequest().body("deu ruim");
+        }
     }
 }
