@@ -33,6 +33,6 @@ public class PixService {
             System.out.println(e.getMessage());
         }
 
-        return "Pix EVP created successfully";
+        return "Erro gerando chave pix";
     }
 }

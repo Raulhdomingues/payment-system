@@ -21,7 +21,6 @@ public record UserCreateRequest(
         @Size(min = 8, message = "Password must be at least 8 characters long")
         String password,
 
-        @NotNull(message = "Password is required")
         @NotBlank(message = "Password cannot be blank")
         String role) {
 

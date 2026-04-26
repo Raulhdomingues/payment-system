@@ -15,7 +15,7 @@ public class PixController {
     private PixService pixService;
 
     @GetMapping
-    public ResponseEntity createPixEVP() {
+    public ResponseEntity pixCreateEVP() {
         String response = this.pixService.pixCreateEVP();
 
         return ResponseEntity.ok(response);
