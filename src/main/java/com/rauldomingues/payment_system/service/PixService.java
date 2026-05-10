@@ -84,7 +84,6 @@ public class PixService {
 
     private void pixGenerateQRCode(String id){
 
-
         JSONObject options = configuringJsonObject();
 
         HashMap<String, String> params = new HashMap<String, String>();
